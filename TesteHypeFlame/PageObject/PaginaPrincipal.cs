@@ -6,34 +6,34 @@ namespace TesteHypeFlame.PageObject
 {
     class PaginaPrincipal
     {
-        IWebDriver driver;
-        WebDriverWait espera;
+        private IWebDriver _driver;
+        private WebDriverWait _espera;
 
-        public IWebElement iconeSobre;
-        public IWebElement iconeContato;
-        public IWebElement iconeBlog;
-        public IWebElement lupaPesquisa;
-        public IWebElement campoPesquisa;
-        public IWebElement iconeLinkedin;
-        public IWebElement iconeInstagran;
+        public IWebElement iconeSobre { get; private set; }
+        public IWebElement iconeContato { get; private set; }
+        public IWebElement iconeBlog { get; private set; }
+        public IWebElement lupaPesquisa { get; private set; }
+        public IWebElement campoPesquisa { get; private set; }
+        public IWebElement iconeLinkedin { get; private set; }
+        public IWebElement iconeInstagran { get; private set; }
 
         public PaginaPrincipal(IWebDriver driver, WebDriverWait espera)
         {
-            this.driver = driver;
-            this.espera = espera;
+            _driver = driver;
+            _espera = espera;
 
             PageObject();
         }
 
         public void PageObject()
         {
-            lupaPesquisa = espera.Until(ExpectedConditions.ElementExists(By.Id(Constantes.ID_LUPA_PESQUISA)));
-            campoPesquisa = espera.Until(ExpectedConditions.ElementExists(By.Name(Constantes.NAME_CAMPO_PESQUISA)));
-            iconeSobre = espera.Until(ExpectedConditions.ElementExists(By.XPath(Constantes.XPATH_ICONE_SOBRE)));
-            iconeContato = espera.Until(ExpectedConditions.ElementExists(By.XPath(Constantes.XPATH_ICONE_CONTATO)));
-            iconeBlog = espera.Until(ExpectedConditions.ElementExists(By.XPath(Constantes.XPATH_ICONE_BLOG)));
-            iconeLinkedin = espera.Until(ExpectedConditions.ElementExists(By.XPath(Constantes.XPATH_ICONE_LINKEDIN)));
-            iconeInstagran = espera.Until(ExpectedConditions.ElementExists(By.XPath(Constantes.XPATH_ICONE_INSTAGRAN)));
+            lupaPesquisa = _espera.Until(ExpectedConditions.ElementExists(By.Id(Constantes.ID_LUPA_PESQUISA)));
+            campoPesquisa = _espera.Until(ExpectedConditions.ElementExists(By.Name(Constantes.NAME_CAMPO_PESQUISA)));
+            iconeSobre = _espera.Until(ExpectedConditions.ElementExists(By.XPath(Constantes.XPATH_ICONE_SOBRE)));
+            iconeContato = _espera.Until(ExpectedConditions.ElementExists(By.XPath(Constantes.XPATH_ICONE_CONTATO)));
+            iconeBlog = _espera.Until(ExpectedConditions.ElementExists(By.XPath(Constantes.XPATH_ICONE_BLOG)));
+            iconeLinkedin = _espera.Until(ExpectedConditions.ElementExists(By.XPath(Constantes.XPATH_ICONE_LINKEDIN)));
+            iconeInstagran = _espera.Until(ExpectedConditions.ElementExists(By.XPath(Constantes.XPATH_ICONE_INSTAGRAN)));
         }
     }
 }
